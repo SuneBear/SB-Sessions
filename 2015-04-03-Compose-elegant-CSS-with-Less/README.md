@@ -1,7 +1,10 @@
 ## Info
 Title: Write simple and elegant CSS with Less
+
 Time: 2015-04-03
+
 Location: Teambition Meeting Room
+
 Members: Teambition F2E Group
 
 ## Summary
