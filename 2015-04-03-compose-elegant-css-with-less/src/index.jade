@@ -1,0 +1,516 @@
+mixin slide(names, slideClasses)
+  if names
+    section(class=names+' '+slideClasses, data-bespoke-backdrop='backdrop ' + names.split(' ').map(function(name) { return 'backdrop--' + name; }).join(' '))
+      block
+  else
+    section
+      block
+
+doctype html
+html
+  head
+  title Compose elegant CSS with Less
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+
+  link(rel='stylesheet', type='text/css', href='build/build.css')
+
+  body
+
+    article
+
+      +slide('cover')
+        img.avatar(src='images/avatar-sune.jpg')
+        br
+        pre.small.language-less
+          code.
+            .session {
+              &.session-20150403 {
+                title: Compose elegant CSS with Less;
+                location: Teambition Meeting Room;
+                members: Teambition F2E Group;
+              }
+            }
+        p
+          a(href='http://weibo.com/SuneXiong') Sune Bear
+          br
+          small 2015-04-03
+
+      +slide('gray title-big')
+        h1 Why Less
+
+      +slide('gray learn-pres')
+        h3.bullet Let's to learn <br> CSS popular pre-processors first
+        div.row.three-logos
+          div.col-xs-4
+            a.no-border.bullet(href='http://sass-lang.com')
+              img(src="images/logo-sass.png")
+          div.col-xs-4
+            a.no-border.bullet(href='http://lesscss.net')
+              img(src="images/logo-less.png")
+          div.col-xs-4
+            a.no-border.bullet(href='http://learnboost.github.io/stylus')
+              img(src="images/logo-stylus.png")
+
+      +slide('three-code-compare')
+        h2.futura { Code Compare  }
+
+      +slide
+        pre.language-scss
+          code.
+            // Variables – Sass
+            $colorPrimary: #333;
+            $siteWidth: 960px;
+            body {
+              color: $colorPrimary;
+              width: $siteWidth;
+            }
+
+      +slide
+        pre.language-less
+          code.
+            // Variables – Less
+            @colorPrimary: #333;
+            @siteWidth: 960px;
+            body {
+              color: @colorPrimary;
+              width: @siteWidth;
+            }
+
+      +slide
+        pre.language-stylus
+          code.
+            // Variables – Stylus
+            colorPrimary #333
+            siteWidth 960px
+            body
+              color colorPrimary
+              width siteWidth
+
+      +slide
+        pre.language-stylus
+          code.
+            // Variables – Stylus 2th
+            colorPrimary = #333
+            siteWidth = 960px
+            body
+              color: colorPrimary
+              width: siteWidth
+
+      +slide('code-compare')
+        div.row
+          div.col-xs-6.bullet
+            pre.language-less
+              code.
+                // Nesting - Sass/Less
+                nav {
+                  ul {
+                    li {
+                      a {
+                      }
+                    }
+                  }
+                }
+          div.col-xs-6.bullet
+            pre.language-stylus
+              code.
+                // Nesting - stylus
+                nav
+                  ul
+                    li
+                      a
+
+                // Like jade : )
+
+      +slide('code-compare')
+        div.row
+          div.col-xs-6.bullet
+            pre.language-less
+              code.
+                // @import – Sass/Less
+                @import "setup";
+                @import "reset";
+                @import "base";
+                @import "layout";
+                @import "typography";
+                @import "theme";
+          div.col-xs-6.bullet
+            pre.language-stylus
+              code.
+                // @import – Stylus
+                @import "setup"
+                @import "reset"
+                @import "base"
+                @import "layout"
+                @import "typography"
+                @import "theme"
+
+      +slide
+        pre.language-scss
+          code.
+            // Mixin – Sass
+            @mixin border-radius($radius) {
+              -webkit-border-radius: $radius;
+              -moz-border-radius: $radius;
+              border-radius: $radius;
+            }
+
+            .box {
+              @include border-radius(5px);
+            }
+
+      +slide
+        pre.language-less
+          code.
+            // Mixin – Less
+            .border-radius(@radius) {
+              -webkit-border-radius: @radius;
+              -moz-border-radius: @radius;
+              border-radius: @radius;
+            }
+
+            .box {
+              .border-radius(5px);
+            }
+
+      +slide
+        pre.language-stylus
+          code.
+            // Mixin – Stylus
+            border-radius (radius)
+              -webkit-border-radius radius
+              -moz-border-radius radius
+              border-radius radius
+
+            .box
+              border-radius(5px)
+
+      +slide
+        pre.language-scss
+          code.
+            // Functions – Sass
+            $g-c: 12;
+            $g-w: 960px;
+
+            @function calculate-column-width($cols) {
+              @return (($g-w / $g-c) * $cols / $g-w) * 100%
+            }
+
+            aside {
+              width: calculate-column-width(4);
+            }
+
+      +slide
+        pre.language-less
+          code.
+            // Functions – Less
+            @g-c: 12;
+            @g-w: 960px;
+
+            .calculate-column-width(@cols) {
+              width: (((@g-w / @g-c) * @cols / @g-w) * 100%);
+            }
+
+            aside {
+              .calculate-column-width(4);
+            }
+
+      +slide
+        pre.language-stylus
+          code.
+            // Functions – Stylus
+            g-c 12
+            g-w 960px
+
+            calculate-column-width(cols)
+              ((g-w / g-c) * cols / g-w) * 100%
+
+            aside
+              width calculate-column-width(4)
+
+      +slide
+        pre.language-scss
+          code.
+            // Control Directives – Sass
+            @if
+            @else if
+            @else
+            @then
+            @for
+            @each
+            @while
+
+      +slide
+        pre.language-less
+          code.
+            // Control Directives – Less
+            when
+            // Are you kidding? Σ( ° △ °|||)︴
+
+      +slide
+        pre.language-stylus
+          code.
+            // Control Directives – Stylus
+            else if
+            else
+            unless
+            for
+
+      +slide
+        h2 “In my opinion”
+
+      +slide
+        p.bullet Sass is earliest, lots of library support
+        br
+        p.bullet Less is most simple, can run in browser
+        br
+        p.bullet Stylus is most powerful, Syntax like Jade
+        br
+        p.bullet Every pre-compiled language has its advantages,
+          | <br> So I can't answer the question that about "Why Less".
+          | <br> Maybe it's fate~
+
+      +slide('yellow')
+        h2 Stop it!
+        h2 Start topic
+
+      +slide('gray title-big')
+        h1 SMACSS & OOCSS
+
+      +slide('black-banner smacss-intro')
+        h2 SMACSS is more style guide than rigid framework
+
+      +slide('smacss-core')
+        h2 The core of SMACSS
+        br
+        ul.no-bullets
+          li
+            h3 - Base
+          li
+            h3 - Layout
+          li
+            h3 - Module
+          li
+            h3 - State
+          li
+            h3 - Theme
+
+      +slide('smacss-code')
+        h2.futura { SMACSS example }
+
+      +slide
+        pre.language-less
+          code.
+            // Base - SMACSS
+            body, form {
+                margin: 0;
+                padding: 0;
+            }
+            a:active,
+            a:hover {
+              outline: 0;
+            }
+            // CSS Resets are a subset of the base
+            // Normalize.css different with CSS Resets
+
+      +slide
+        pre.language-less
+          code.
+            // Layout - SMACSS
+            .site-header {}
+            .site-main {
+              .main-sidebar {}
+              .main-body {}
+            }
+            .site-footer {}
+            // Using with gird system is much better
+
+      +slide('code-compare')
+        div.row
+          div.col-xs-6
+            h2 &nbsp;
+            pre.xsmall.language-markup
+              code.
+                &lt;div class="card materials-wrap"&gt;
+                  &lt;div class="list-group flds"&gt;
+                    &lt;div class="list-group-item fld"&gt;
+                      &lt;span class="fld-name"&gt;Folder Name&lt;/span&gt;
+                      &lt;span class="fld-items"&gt;(32 items)&lt;/span&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+          div.col-xs-6
+            h2 &nbsp;
+            pre.xsmall.language-less
+              code.
+                // Module - SMACSS
+                // Base module in uis/list.less
+                .list-group {}
+                .list-group-item {}
+                // Logical module in components/subtype/flds.less
+                // Logical module extend base module
+                .flds {}
+                .fld {
+                  .fld-name {}
+                  .fld-items {}
+                }
+                // Instance in page/controller/view.less
+                .materials-wrap {
+                  .flds {}
+                  .fld {}
+                }
+
+      +slide
+        pre.language-less
+          code.
+            // State - SMACSS
+            // Global state
+            .is-bfc {
+              overflow: hidden;
+            }
+            // Combining State Rules with Modules
+            .tab {
+                background-color: purple;
+                &.is-active {
+                  background-color: white;
+                }
+            }
+
+      +slide
+        pre.language-less
+          code.
+            // Theme - SMACSS
+            // Theme is not necessary
+            // in module-name.less
+            .mod {
+                border: 1px solid;
+            }
+            // in theme.less
+            .mod {
+                border-color: blue;
+            }
+
+      +slide
+        pre.language-less
+          code.
+            // Theme - SMACSS
+            // Use variables control theme
+            // in variables.less
+            @color-primray: blue;
+            // in module-name.less
+            .mod {
+                border: 1px solid @color-primray;
+            }
+
+      +slide('black-banner oocss')
+        h2 OOCSS only has two principles
+
+      +slide
+        ul
+          li
+            h3 1. Separate structure and skin
+            br
+          li
+            h3 2. Separate container and content
+            br
+
+      +slide('bootstrap')
+        h2.futura Bootstrap is best practice
+        h3 — of —
+        h2.futura SMACSS & OOCSS
+
+      +slide('code-compare bs-btn')
+        div.row
+          div.col-xs-6
+            h2 &nbsp;
+            pre.xsmall.language-markup
+              code.
+                &lt;div class="btn-group"&gt;
+                  &lt;a class="btn btn-dafalut"&gt;1&lt;/a&gt;
+                  &lt;a class="btn btn-primary btn-lg"&gt;2&lt;/a&gt;
+                  &lt;a class="btn btn-danger disabled"&gt;3&lt;/a&gt;
+                &lt;/div&gt;
+          div.col-xs-6
+            h2 &nbsp;
+            pre.xsmall.language-less
+              code.
+                // in button-groups.less
+                .btn-group {}
+                // in buttons.less
+                .btn {
+                  &.active {}
+                  &.disabled {}
+                }
+                .btn-default {}
+                .btn-primary {}
+                .btn-danger {}
+                .btn-lg {}
+
+      +slide('green no-bem')
+        h2.bullet Why no BEM
+        h3.bullet BEM is in conflict with OOCSS
+        h3.bullet
+          a(href="http://www.zhihu.com/question/21935157")  知乎：如何看待 CSS 中 BEM 的命名方式？
+        br
+        br
+        br
+
+      +slide('gray title-big')
+        h1 Guidelines
+
+      +slide
+        h2.bullet cssguidelin.es
+        br
+        ul
+          li
+            h3 - Syntax and Formatting
+          li
+            h3 - Naming Conventions
+          li
+            h3 - Nesting and CSS Selectors
+          li
+            h3 - Commenting
+
+      +slide('blue summary')
+        h2.bullet Summary
+        br
+        div
+          span.bullet Elegant CSS
+          span.bullet &nbsp;= Less
+          span.bullet &nbsp;+ SMACSS
+          span.bullet &nbsp;+ OOCSS
+          span.bullet &nbsp;+ Guidelines
+        br
+        div.bullet ↓
+        br
+        div
+          span.is-invisible Elegant CSS =
+          span.bullet &nbsp;Pre-Processor
+          span.bullet &nbsp;+ Framework
+          span.bullet &nbsp;+ Linter
+        br
+        br
+
+      +slide('gray title-big')
+        h1 Discuss
+
+      +slide
+        h2.bullet Three questions
+        br
+        ul
+          li
+            h3 - Nameing
+          li
+            h3 - Spacing
+          li
+            h3 - Typography
+            br
+
+      +slide('under-ocean thanks')
+        div
+          span.thanks-content THANKS
+          br
+          br
+          a.btn(href="https://github.com/SuneBear/Sessions") Get Presentation
+
+    script(src='build/build.js')
