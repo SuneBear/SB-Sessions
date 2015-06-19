@@ -1,7 +1,10 @@
 ## Info
 **Title:** Compose elegant CSS with Less
+
 **Date:** 2015-04-03
+
 **Location:** Teambition Meeting Room
+
 **Members:** Teambition F2E Group
 
 ## Summary

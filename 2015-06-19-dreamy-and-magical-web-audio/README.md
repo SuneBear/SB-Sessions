@@ -1,11 +1,16 @@
 ## Info
 **Title:** Dreamy and magical Web Audio
+
 **Description:** A meek and cute introduction to understanding and using Web Audio
+
 **Date:** 2015-06-19
+
 **Location:** Teambition Meeting Room
+
 **Members:** Teambition F2E Group
 
 The presentation produced by [Slides](http://slides.com).
+
 Online Preview: [Sune Session: Dreamy and magical Web Audio](http://sunebear.com/sessions/2015-06-19-dreamy-and-magical-web-audio/).
 
 ## Contents
