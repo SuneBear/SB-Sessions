@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <title>Compose elegant CSS with Less</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" type="text/css" href="build/build.css">
+  <body>
+    <article>
+      <section data-bespoke-backdrop="backdrop backdrop--cover" class="cover undefined"><img src="images/avatar-sune.jpg" class="avatar"><br>
+        <pre class="small language-less"><code>.session {
+  &.session-20150403 {
+    title: Compose elegant CSS with Less;
+    location: Teambition Meeting Room;
+    members: Teambition F2E Group;
+  }
+}</code></pre>
+        <p><a href="http://weibo.com/SuneXiong">Sune Bear</a><br><small>2015-04-03</small></p>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--gray backdrop--title-big" class="gray title-big undefined">
+        <h1>Why Less</h1>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--gray backdrop--learn-pres" class="gray learn-pres undefined">
+        <h3 class="bullet">Let's to learn <br> CSS popular pre-processors first</h3>
+        <div class="row three-logos">
+          <div class="col-xs-4"><a href="http://sass-lang.com" class="no-border bullet"><img src="images/logo-sass.png"></a></div>
+          <div class="col-xs-4"><a href="http://lesscss.net" class="no-border bullet"><img src="images/logo-less.png"></a></div>
+          <div class="col-xs-4"><a href="http://learnboost.github.io/stylus" class="no-border bullet"><img src="images/logo-stylus.png"></a></div>
+        </div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--three-code-compare" class="three-code-compare undefined">
+        <h2 class="futura">{ Code Compare  }</h2>
+      </section>
+      <section>
+        <pre class="language-scss"><code>// Variables – Sass
+$colorPrimary: #333;
+$siteWidth: 960px;
+body {
+  color: $colorPrimary;
+  width: $siteWidth;
+}
+</code></pre>
+      </section>
+      <section>
+        <pre class="language-less"><code>// Variables – Less
+@colorPrimary: #333;
+@siteWidth: 960px;
+body {
+  color: @colorPrimary;
+  width: @siteWidth;
+}
+</code></pre>
+      </section>
+      <section>
+        <pre class="language-stylus"><code>// Variables – Stylus
+colorPrimary #333
+siteWidth 960px
+body
+  color colorPrimary
+  width siteWidth
+  </code></pre>
+      </section>
+      <section>
+        <pre class="language-stylus"><code>// Variables – Stylus 2th
+colorPrimary = #333
+siteWidth = 960px
+body
+  color: colorPrimary
+  width: siteWidth
+  </code></pre>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--code-compare" class="code-compare undefined">
+        <div class="row">
+          <div class="col-xs-6 bullet">
+            <pre class="language-less"><code>// Nesting - Sass/Less
+nav {
+  ul {
+    li {
+      a {
+      }
+    }
+  }
+}</code></pre>
+          </div>
+          <div class="col-xs-6 bullet">
+            <pre class="language-stylus"><code>// Nesting - stylus
+nav
+  ul
+    li
+      a
+      
+// Like jade : )
+</code></pre>
+          </div>
+        </div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--code-compare" class="code-compare undefined">
+        <div class="row">
+          <div class="col-xs-6 bullet">
+            <pre class="language-less"><code>// @import – Sass/Less
+@import "setup";
+@import "reset";
+@import "base";
+@import "layout";
+@import "typography";
+@import "theme";</code></pre>
+          </div>
+          <div class="col-xs-6 bullet">
+            <pre class="language-stylus"><code>// @import – Stylus
+@import "setup"
+@import "reset"
+@import "base"
+@import "layout"
+@import "typography"
+@import "theme"
+</code></pre>
+          </div>
+        </div>
+      </section>
+      <section>
+        <pre class="language-scss"><code>// Mixin – Sass
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+.box {
+  @include border-radius(5px);
+}
+</code></pre>
+      </section>
+      <section>
+        <pre class="language-less"><code>// Mixin – Less
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.box {
+  .border-radius(5px);
+}
+</code></pre>
+      </section>
+      <section>
+        <pre class="language-stylus"><code>// Mixin – Stylus
+border-radius (radius)
+  -webkit-border-radius radius
+  -moz-border-radius radius
+  border-radius radius
+  
+.box
+  border-radius(5px)
+  </code></pre>
+      </section>
+      <section>
+        <pre class="language-scss"><code>// Functions – Sass
+$g-c: 12;
+$g-w: 960px;
+
+@function calculate-column-width($cols) {
+  @return (($g-w / $g-c) * $cols / $g-w) * 100%
+}
+
+aside {
+  width: calculate-column-width(4);
+}
+</code></pre>
+      </section>
+      <section>
+        <pre class="language-less"><code>// Functions – Less
+@g-c: 12;
+@g-w: 960px;
+
+.calculate-column-width(@cols) {
+  width: (((@g-w / @g-c) * @cols / @g-w) * 100%);
+}
+
+aside {
+  .calculate-column-width(4);
+}
+</code></pre>
+      </section>
+      <section>
+        <pre class="language-stylus"><code>// Functions – Stylus
+g-c 12
+g-w 960px
+
+calculate-column-width(cols)
+  ((g-w / g-c) * cols / g-w) * 100%
+  
+aside
+  width calculate-column-width(4)
+  </code></pre>
+      </section>
+      <section>
+        <pre class="language-scss"><code>// Control Directives – Sass
+@if
+@else if
+@else
+@then
+@for
+@each
+@while
+</code></pre>
+      </section>
+      <section>
+        <pre class="language-less"><code>// Control Directives – Less
+when
+// Are you kidding? Σ( ° △ °|||)︴
+</code></pre>
+      </section>
+      <section>
+        <pre class="language-stylus"><code>// Control Directives – Stylus
+else if
+else
+unless
+for
+</code></pre>
+      </section>
+      <section>
+        <h2>“In my opinion”</h2>
+      </section>
+      <section>
+        <p class="bullet">Sass is earliest, lots of library support</p><br>
+        <p class="bullet">Less is most simple, can run in browser</p><br>
+        <p class="bullet">Stylus is most powerful, Syntax like Jade</p><br>
+        <p class="bullet">
+          Every pre-compiled language has its advantages,
+          <br> So I can't answer the question that about "Why Less".
+          <br> Maybe it's fate~
+        </p>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--yellow" class="yellow undefined">
+        <h2>Stop it!</h2>
+        <h2>Start topic</h2>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--gray backdrop--title-big" class="gray title-big undefined">
+        <h1>SMACSS & OOCSS</h1>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--black-banner backdrop--smacss-intro" class="black-banner smacss-intro undefined">
+        <h2>SMACSS is more style guide than rigid framework</h2>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--smacss-core" class="smacss-core undefined">
+        <h2>The core of SMACSS</h2><br>
+        <ul class="no-bullets">
+          <li>
+            <h3>- Base</h3>
+          </li>
+          <li>
+            <h3>- Layout</h3>
+          </li>
+          <li>
+            <h3>- Module</h3>
+          </li>
+          <li>
+            <h3>- State</h3>
+          </li>
+          <li>
+            <h3>- Theme</h3>
+          </li>
+        </ul>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--smacss-code" class="smacss-code undefined">
+        <h2 class="futura">{ SMACSS example }</h2>
+      </section>
+      <section>
+        <pre class="language-less"><code>// Base - SMACSS
+body, form {
+    margin: 0;
+    padding: 0;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+// CSS Resets are a subset of the base
+// Normalize.css different with CSS Resets
+</code></pre>
+      </section>
+      <section>
+        <pre class="language-less"><code>// Layout - SMACSS
+.site-header {}
+.site-main {
+  .main-sidebar {}
+  .main-body {}
+}
+.site-footer {}
+// Using with gird system is much better
+</code></pre>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--code-compare" class="code-compare undefined">
+        <div class="row">
+          <div class="col-xs-6">
+            <h2>&nbsp;</h2>
+            <pre class="xsmall language-markup"><code>&lt;div class="card materials-wrap"&gt;
+  &lt;div class="list-group flds"&gt;
+    &lt;div class="list-group-item fld"&gt;
+      &lt;span class="fld-name"&gt;Folder Name&lt;/span&gt;
+      &lt;span class="fld-items"&gt;(32 items)&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+          <div class="col-xs-6">
+            <h2>&nbsp;</h2>
+            <pre class="xsmall language-less"><code>// Module - SMACSS
+// Base module in uis/list.less
+.list-group {}
+.list-group-item {}
+// Logical module in components/subtype/flds.less
+// Logical module extend base module
+.flds {}
+.fld {
+  .fld-name {}
+  .fld-items {}
+}
+// Instance in page/controller/view.less
+.materials-wrap {
+  .flds {}
+  .fld {}
+}
+</code></pre>
+          </div>
+        </div>
+      </section>
+      <section>
+        <pre class="language-less"><code>// State - SMACSS
+// Global state
+.is-bfc {
+  overflow: hidden;
+}
+// Combining State Rules with Modules
+.tab {
+    background-color: purple;
+    &.is-active {
+      background-color: white;
+    }
+}
+</code></pre>
+      </section>
+      <section>
+        <pre class="language-less"><code>// Theme - SMACSS
+// Theme is not necessary
+// in module-name.less
+.mod {
+    border: 1px solid;
+}
+// in theme.less
+.mod {
+    border-color: blue;
+}
+</code></pre>
+      </section>
+      <section>
+        <pre class="language-less"><code>// Theme - SMACSS
+// Use variables control theme
+// in variables.less
+@color-primray: blue;
+// in module-name.less
+.mod {
+    border: 1px solid @color-primray;
+}
+</code></pre>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--black-banner backdrop--oocss" class="black-banner oocss undefined">
+        <h2>OOCSS only has two principles</h2>
+      </section>
+      <section>
+        <ul>
+          <li>
+            <h3>1. Separate structure and skin</h3><br>
+          </li>
+          <li>
+            <h3>2. Separate container and content</h3><br>
+          </li>
+        </ul>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--bootstrap" class="bootstrap undefined">
+        <h2 class="futura">Bootstrap is best practice</h2>
+        <h3>— of —</h3>
+        <h2 class="futura">SMACSS & OOCSS</h2>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--code-compare backdrop--bs-btn" class="code-compare bs-btn undefined">
+        <div class="row">
+          <div class="col-xs-6">
+            <h2>&nbsp;</h2>
+            <pre class="xsmall language-markup"><code>&lt;div class="btn-group"&gt;
+  &lt;a class="btn btn-dafalut"&gt;1&lt;/a&gt;
+  &lt;a class="btn btn-primary btn-lg"&gt;2&lt;/a&gt;
+  &lt;a class="btn btn-danger disabled"&gt;3&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+          <div class="col-xs-6">
+            <h2>&nbsp;</h2>
+            <pre class="xsmall language-less"><code>// in button-groups.less
+.btn-group {}
+// in buttons.less
+.btn {
+  &.active {}
+  &.disabled {}
+}
+.btn-default {}
+.btn-primary {}
+.btn-danger {}
+.btn-lg {}
+</code></pre>
+          </div>
+        </div>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--green backdrop--no-bem" class="green no-bem undefined">
+        <h2 class="bullet">Why no BEM</h2>
+        <h3 class="bullet">BEM is in conflict with OOCSS</h3>
+        <h3 class="bullet"><a href="http://www.zhihu.com/question/21935157"> 知乎：如何看待 CSS 中 BEM 的命名方式？</a></h3><br><br><br>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--gray backdrop--title-big" class="gray title-big undefined">
+        <h1>Guidelines</h1>
+      </section>
+      <section>
+        <h2 class="bullet">cssguidelin.es</h2><br>
+        <ul>
+          <li>
+            <h3>- Syntax and Formatting</h3>
+          </li>
+          <li>
+            <h3>- Naming Conventions</h3>
+          </li>
+          <li>
+            <h3>- Nesting and CSS Selectors</h3>
+          </li>
+          <li>
+            <h3>- Commenting</h3>
+          </li>
+        </ul>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--blue backdrop--summary" class="blue summary undefined">
+        <h2 class="bullet">Summary</h2><br>
+        <div><span class="bullet">Elegant CSS</span><span class="bullet">&nbsp;= Less</span><span class="bullet">&nbsp;+ SMACSS</span><span class="bullet">&nbsp;+ OOCSS</span><span class="bullet">&nbsp;+ Guidelines</span></div><br>
+        <div class="bullet">↓</div><br>
+        <div><span class="is-invisible">Elegant CSS =</span><span class="bullet">&nbsp;Pre-Processor</span><span class="bullet">&nbsp;+ Framework</span><span class="bullet">&nbsp;+ Linter</span></div><br><br>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--gray backdrop--title-big" class="gray title-big undefined">
+        <h1>Discuss</h1>
+      </section>
+      <section>
+        <h2 class="bullet">Three questions</h2><br>
+        <ul>
+          <li>
+            <h3>- Nameing</h3>
+          </li>
+          <li>
+            <h3>- Spacing</h3>
+          </li>
+          <li>
+            <h3>- Typography</h3><br>
+          </li>
+        </ul>
+      </section>
+      <section data-bespoke-backdrop="backdrop backdrop--under-ocean backdrop--thanks" class="under-ocean thanks undefined">
+        <div><span class="thanks-content">THANKS</span><br><br><a href="https://github.com/SuneBear/Sessions" class="btn">Get Presentation</a></div>
+      </section>
+    </article>
+    <script src="build/build.js"></script>
+  </body>
+</html>
