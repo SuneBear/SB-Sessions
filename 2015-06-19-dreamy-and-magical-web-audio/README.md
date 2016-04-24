@@ -11,7 +11,7 @@
 
 The presentation produced by [Slides](http://slides.com).
 
-Online Preview: [Dreamy and magical Web Audio](http://sunebear.github.io/Sessions/2015-06-19-dreamy-and-magical-web-audio/).
+Online Preview: [Dreamy and magical Web Audio](http://sunebear.github.io/SB-Sessions/2015-06-19-dreamy-and-magical-web-audio/).
 
 ## Contents
 1. Cover
